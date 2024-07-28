@@ -1,1 +1,2 @@
-# Clinic_Management_System-Group-5-
+# ClinicManagementSystem
+ST4009CEM Computing Activity Led Learning Project 2
