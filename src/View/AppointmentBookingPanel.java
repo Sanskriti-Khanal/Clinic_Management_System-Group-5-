@@ -35,53 +35,73 @@ public class AppointmentBookingPanel extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel3 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        bookButton = new javax.swing.JButton();
-        cancelButton = new javax.swing.JButton();
-        doctor = new javax.swing.JComboBox<>();
         time = new javax.swing.JComboBox<>();
-        date = new com.toedter.calendar.JDateChooser();
+        jLabel5 = new javax.swing.JLabel();
+        doctor = new javax.swing.JComboBox<>();
+        cancelButton = new javax.swing.JButton();
+        bookButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
         setBackground(java.awt.Color.white);
 
-        jPanel3.setBackground(new java.awt.Color(50, 0, 50));
-
-        jLabel4.setBackground(new java.awt.Color(50, 0, 50));
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jLabel4.setForeground(java.awt.Color.white);
-        jLabel4.setText("Book Appointment");
+        jPanel3.setBackground(new java.awt.Color(141, 161, 195));
 
         jPanel1.setBackground(java.awt.Color.white);
 
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/App.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(18, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 843, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel1.setBackground(java.awt.Color.white);
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Hiragino Mincho ProN", 1, 18)); // NOI18N
         jLabel1.setText("Date :");
 
         jLabel3.setBackground(java.awt.Color.white);
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Hiragino Mincho ProN", 1, 18)); // NOI18N
         jLabel3.setText("Time :");
 
+        time.setBackground(new java.awt.Color(141, 161, 195));
+        time.setForeground(java.awt.Color.white);
+        time.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10 AM", "1 PM", "3 PM" }));
+
         jLabel5.setBackground(java.awt.Color.white);
-        jLabel5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Hiragino Mincho ProN", 1, 18)); // NOI18N
         jLabel5.setText("Doctor :");
 
-        bookButton.setBackground(new java.awt.Color(50, 0, 50));
-        bookButton.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        bookButton.setForeground(java.awt.Color.white);
-        bookButton.setText("Book");
-        bookButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                bookButtonMouseClicked(evt);
+        doctor.setBackground(new java.awt.Color(141, 161, 195));
+        doctor.setForeground(java.awt.Color.white);
+        doctor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dentist", "Cardiologist", "Gynechologist", "Dermatologist", "General" }));
+        doctor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                doctorActionPerformed(evt);
             }
         });
 
-        cancelButton.setBackground(new java.awt.Color(50, 0, 50));
+        cancelButton.setBackground(new java.awt.Color(141, 161, 195));
         cancelButton.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         cancelButton.setForeground(java.awt.Color.white);
         cancelButton.setText("Cancel");
@@ -91,103 +111,110 @@ public class AppointmentBookingPanel extends javax.swing.JFrame {
             }
         });
 
-        doctor.setBackground(new java.awt.Color(50, 0, 50));
-        doctor.setForeground(java.awt.Color.white);
-        doctor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Doctor 1", "Doctor 2", "Doctor 3", "Doctor 4", "Doctor 5" }));
+        bookButton.setBackground(new java.awt.Color(141, 161, 195));
+        bookButton.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        bookButton.setForeground(java.awt.Color.white);
+        bookButton.setText("Book");
+        bookButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bookButtonMouseClicked(evt);
+            }
+        });
 
-        time.setBackground(new java.awt.Color(50, 0, 50));
-        time.setForeground(java.awt.Color.white);
-        time.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10 AM", "1 PM", "3 PM" }));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Logo.png"))); // NOI18N
 
-        date.setDateFormatString("yyyy-MM-dd");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 182, Short.MAX_VALUE)
-                .addComponent(bookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
-                .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(209, 209, 209))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(281, 281, 281)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel5))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(time, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(doctor, 0, 99, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                    .addComponent(jLabel2)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(time, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(doctor, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(98, 98, 98)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(jLabel1)
+                .addGap(24, 24, 24)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(time, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(doctor, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(60, 60, 60)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addGap(24, 24, 24)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(doctor, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(74, 74, 74))
         );
+
+        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel6.setFont(new java.awt.Font("Hiragino Mincho ProN", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Appointment Booking");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(239, 239, 239))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addGap(27, 27, 27)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addGap(17, 17, 17))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel6)
+                .addGap(377, 377, 377))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel4)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addGap(15, 15, 15)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -209,62 +236,64 @@ public class AppointmentBookingPanel extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_numberFieldActionPerformed
 
-    private void bookButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bookButtonMouseClicked
-Appointment a = new Appointment();
-
-// Get the selected date
-Date selectedDate = date.getDate();
-a.StaffID = staffHomePage.StaffID;
-
-if (selectedDate == null) {
-    Toolkit.getDefaultToolkit().beep();
-    JOptionPane.showMessageDialog(this, "Please select a date");
-} else {
-    // Format the date
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-    String formattedDate = sdf.format(selectedDate);
-    a.setDate(formattedDate);
-    a.setTime((String) time.getSelectedItem());
-    a.setDoctor((String) doctor.getSelectedItem());
-    a.PatientPhone = Appointment.PatientPhone;
-
-    AppointmentActions aa = new AppointmentActions();
-    if (!aa.isDateValid(formattedDate)) {
-        if (!aa.isAppointmentAvailable(a)) {
-            Toolkit.getDefaultToolkit().beep();
-            JOptionPane.showMessageDialog(this, "The date is already occupied Please select another date/time/doctor");
-            
-            
-        } else {
-            if(aa.CommitAppointment(a)){
-                this.dispose();
-                Toolkit.getDefaultToolkit().beep();
-                String Message="Appointment Booked Successfully for:\nNumber: "+a.PatientPhone+"\nDate: "+a.getDate()+"\t Time: "+a.getTime()+"\nDoctor: "+a.getDoctor();
-                JOptionPane.showMessageDialog(this, Message);
-                AppointmentInformationPanel aip=new AppointmentInformationPanel();
-                aip.setVisible(true);
-            }
-            else{
-            Toolkit.getDefaultToolkit().beep();
-            JOptionPane.showMessageDialog(this, "Failed Booking Appointment");
-            
-            }
-        }
-    } else {
-        Toolkit.getDefaultToolkit().beep();
-        JOptionPane.showMessageDialog(this, "Please select a date for tomorrow or the day after tomorrow.");
-        
-    }
-}
-
-    }//GEN-LAST:event_bookButtonMouseClicked
+    private void doctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doctorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_doctorActionPerformed
 
     private void cancelButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelButtonMouseClicked
         // TODO add your handling code here:
         this.dispose();
-        AppointmentInformationPanel ss =new AppointmentInformationPanel();
+        AppointmentDetails ss =new AppointmentDetails();
         ss.setVisible(true);
     }//GEN-LAST:event_cancelButtonMouseClicked
+
+    private void bookButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bookButtonMouseClicked
+        Appointment a = new Appointment();
+
+        // Get the selected date
+        Date selectedDate = date.getDate();
+        a.StaffID = staffHomePage.StaffID;
+
+        if (selectedDate == null) {
+            Toolkit.getDefaultToolkit().beep();
+            JOptionPane.showMessageDialog(this, "Please select a date");
+        } else {
+            // Format the date
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+            String formattedDate = sdf.format(selectedDate);
+            a.setDate(formattedDate);
+            a.setTime((String) time.getSelectedItem());
+            a.setDoctor((String) doctor.getSelectedItem());
+            a.PatientPhone = Appointment.PatientPhone;
+
+            AppointmentActions aa = new AppointmentActions();
+            if (!aa.isDateValid(formattedDate)) {
+                if (!aa.isAppointmentAvailable(a)) {
+                    Toolkit.getDefaultToolkit().beep();
+                    JOptionPane.showMessageDialog(this, "The date is already occupied Please select another date/time/doctor");
+
+                } else {
+                    if(aa.CommitAppointment(a)){
+                        this.dispose();
+                        Toolkit.getDefaultToolkit().beep();
+                        String Message="Appointment Booked Successfully for:\nNumber: "+a.PatientPhone+"\nDate: "+a.getDate()+"\t Time: "+a.getTime()+"\nDoctor: "+a.getDoctor();
+                        JOptionPane.showMessageDialog(this, Message);
+                        AppointmentDetails aip=new AppointmentDetails();
+                        aip.setVisible(true);
+                    }
+                    else{
+                        Toolkit.getDefaultToolkit().beep();
+                        JOptionPane.showMessageDialog(this, "Failed Booking Appointment");
+
+                    }
+                }
+            } else {
+                Toolkit.getDefaultToolkit().beep();
+                JOptionPane.showMessageDialog(this, "Please select a date for tomorrow or the day after tomorrow.");
+
+            }
+        }
+    }//GEN-LAST:event_bookButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -311,14 +340,26 @@ if (selectedDate == null) {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bookButton;
     private javax.swing.JButton cancelButton;
-    private com.toedter.calendar.JDateChooser date;
     private javax.swing.JComboBox<String> doctor;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JComboBox<String> time;
     // End of variables declaration//GEN-END:variables
+
+    private static class date {
+
+        private static Date getDate() {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        public date() {
+        }
+    }
 }

@@ -6,8 +6,8 @@ public class MySqlConnection implements Database {
     @Override
     public Connection openConnection() { 
         try{
-            String username = "Clinic";
-            String password = "Clinic";
+            String username = "root";
+            String password = "admin123";
             String database = "ClinicManagementSystem";
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection;
